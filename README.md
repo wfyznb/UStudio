@@ -24,4 +24,4 @@ It's an up-to-date fork of Razmoth's one. After his repo was discontinued, bugs 
 ---
 
 # Update 2026-5-09
-Support SNiSister
+Support SiNiSister
