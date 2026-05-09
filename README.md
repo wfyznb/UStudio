@@ -1,4 +1,4 @@
-# Anime Studio
+# U Studio
 ## Asset extraction tool for unity games !
 
 ![image](https://github.com/user-attachments/assets/fc1decdc-a589-43a2-b965-2d8151d0975f)
