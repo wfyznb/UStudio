@@ -1169,5 +1169,26 @@ namespace AnimeStudio
                 return reader;
             }
         }
+
+        public static FileReader DecryptQianNianZhiLv(FileReader reader)
+        {
+            Logger.Verbose($"Attempting to decrypt file {reader.FileName} with QianNianZhiLv encryption");
+
+            var data = reader.ReadBytes((int)reader.Remaining);
+
+            byte xorKey = 0x7B;
+            int xorLength = Math.Min(1000, data.Length);
+            for (int i = 0; i < xorLength; i++)
+            {
+                data[i] ^= xorKey;
+            }
+
+            Logger.Verbose("Decrypted QianNianZhiLv file successfully !!");
+
+            MemoryStream ms = new();
+            ms.Write(data);
+            ms.Position = 0;
+            return new FileReader(reader.FullPath, ms);
+        }
     }
 }

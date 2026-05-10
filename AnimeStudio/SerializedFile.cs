@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.IO;
@@ -412,7 +412,10 @@ namespace AnimeStudio
         {
             Logger.Verbose($"Caching object with {obj.m_PathID} in file {fileName}...");
             Objects.Add(obj);
-            ObjectsDic.Add(obj.m_PathID, obj);
+            if (!ObjectsDic.TryAdd(obj.m_PathID, obj))
+            {
+                Logger.Warning($"Duplicate PathID {obj.m_PathID} in file {fileName}, skipping...");
+            }
         }
 
         private static int DecodeClassID(int value)

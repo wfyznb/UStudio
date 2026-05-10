@@ -221,7 +221,7 @@ namespace AnimeStudio
                     var assetsFile = new SerializedFile(reader, this);
                     CheckStrippedVersion(assetsFile);
                     assetsFileList.Add(assetsFile);
-                    assetsFileIndexCache.Add(assetsFile.fileName, assetsFileList.Count - 1);
+                    assetsFileIndexCache[assetsFile.fileName] = assetsFileList.Count - 1;
                     assetsFileListHash.Add(assetsFile.fileName);
 
                     foreach (var sharedFile in assetsFile.m_Externals)

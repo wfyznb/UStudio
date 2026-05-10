@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using static AnimeStudio.ImportHelper;
@@ -246,6 +246,12 @@ namespace AnimeStudio
                         break;
                     case GameType.SchoolGirlStrikers:
                         reader = DecryptSchoolGirlStrikers(reader);
+                        break;
+                    case GameType.SiNiSistar:
+                        reader = DecryptSiNiSistar(reader);
+                        break;
+                    case GameType.QianNianZhiLv:
+                        reader = DecryptQianNianZhiLv(reader);
                         break;
                 }
             }
